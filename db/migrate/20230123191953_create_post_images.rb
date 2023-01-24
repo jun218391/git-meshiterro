@@ -2,7 +2,8 @@ class CreatePostImages < ActiveRecord::Migration[6.1]
   def change
     create_table :post_images do |t|
       # t.integer :id     idは記載がなくても生成される
-                          # 記載するとエラーが発生
+      # 記載するとエラーが発生
+      
       t.string :shop_name
       t.text :caption
       t.integer :user_id

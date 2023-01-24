@@ -8,12 +8,13 @@ class User < ApplicationRecord
   
   has_one_attached :profile_image #画像表示のため
   
-  def get_profile_image(width, height) 　　#defからendまでget_profile_imageメソッドを定義
+  def get_profile_image(width,height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  # 例　get_profile_image(100, 100)で100×100の画像にリサイズされる
+
+
 end
